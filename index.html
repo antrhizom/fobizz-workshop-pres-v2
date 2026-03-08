@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fobizz Workshop | DLH ABU SLP 2030</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="nav-logo">🎓</span>
+    <span class="nav-title">DLH ABU SLP 2030</span>
+  </div>
+  <div class="nav-right">
+    <span id="slide-counter" class="slide-counter">1 / 3</span>
+    <button class="nav-btn" id="btn-prev" aria-label="Vorherige Folie">&#8592;</button>
+    <button class="nav-btn" id="btn-next" aria-label="Nächste Folie">&#8594;</button>
+    <button class="nav-btn fullscreen-btn" id="btn-fullscreen" aria-label="Vollbild">&#x26F6;</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROGRESS BAR
+════════════════════════════════════════════════════════════ -->
+<div class="progress-track">
+  <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE DECK
+════════════════════════════════════════════════════════════ -->
+<main class="slide-deck" id="slide-deck">
+
+  <!-- ──────────────────────────────────────────────────────
+       SLIDE 1 · HERO / START
+  ────────────────────────────────────────────────────────── -->
+  <section class="slide active" id="slide-1">
+    <div class="slide-bg slide-bg-hero"></div>
+    <div class="slide-content hero-content">
+      <div class="hero-badge">DLH ABU SLP 2030</div>
+      <h1 class="hero-title">Fobizz Workshop</h1>
+      <p class="hero-subtitle">Weiterbildung &mdash; Titel folgt</p>
+      <div class="hero-partners">
+        <span class="partner-chip"><span class="partner-icon">🚀</span> Fobizz</span>
+      </div>
+    </div>
+    <div class="slide-decoration deco-1"></div>
+    <div class="slide-decoration deco-2"></div>
+    <div class="key-hint" id="key-hint">Pfeiltasten ← → zum Navigieren &middot; F = Vollbild</div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────
+       SLIDE 2 · TEAM / KURSLEITUNGEN
+  ────────────────────────────────────────────────────────── -->
+  <section class="slide" id="slide-2">
+    <div class="slide-bg slide-bg-team"></div>
+
+    <!-- OVERVIEW: die vier Karten -->
+    <div class="slide-content team-content" id="team-overview">
+      <div class="section-label">Kursleitungen</div>
+      <h2 class="section-title">Wer begleitet euch heute?</h2>
+
+      <div class="team-grid team-grid-4">
+
+        <!-- Tina Sander -->
+        <div class="team-card" data-person="tina" tabindex="0" style="--delay:0.1s;--hue:200">
+          <div class="card-accent"></div>
+          <div class="avatar"><span>🐉</span></div>
+          <div class="card-body">
+            <h3 class="card-name">Tina Sander</h3>
+            <p class="card-role">Kursleitung</p>
+            <p class="card-focus">BSMG Zürich</p>
+          </div>
+        </div>
+
+        <!-- Pietro Rossi -->
+        <div class="team-card" data-person="pietro" tabindex="0" style="--delay:0.25s;--hue:160">
+          <div class="card-accent"></div>
+          <div class="avatar"><span>🐜</span></div>
+          <div class="card-body">
+            <h3 class="card-name">Pietro Rossi</h3>
+            <p class="card-role">Kursleitung</p>
+            <p class="card-focus">BBW Winterthur &middot; ABU &amp; Erwachsenenbildung</p>
+          </div>
+        </div>
+
+        <!-- Christof Glaus -->
+        <div class="team-card" data-person="christof" tabindex="0" style="--delay:0.4s;--hue:240">
+          <div class="card-accent"></div>
+          <div class="avatar"><span>🐄</span></div>
+          <div class="card-body">
+            <h3 class="card-name">Christof Glaus</h3>
+            <p class="card-role">Kursleitung</p>
+            <p class="card-focus">BBW Winterthur</p>
+          </div>
+        </div>
+
+        <!-- Claude Code -->
+        <div class="team-card" data-person="claude" tabindex="0" style="--delay:0.55s;--hue:120">
+          <div class="card-accent"></div>
+          <div class="avatar avatar-ai"><span>🦛</span></div>
+          <div class="card-body">
+            <h3 class="card-name">Claude Code</h3>
+            <p class="card-role">KI-Entwicklungs-Agent</p>
+            <p class="card-focus">Anthropic</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         DETAIL PANELS (nur Pietro detailliert)
+    ═══════════════════════════════════════════════════════ -->
+
+    <!-- TINA SANDER (kurz) -->
+    <div class="person-panel" id="panel-tina" data-hue="200">
+      <button class="panel-close" id="close-tina" aria-label="Schliessen">&times;</button>
+      <div class="panel-inner">
+        <div class="panel-left">
+          <div class="panel-avatar" style="--hue:200">🐉</div>
+          <div class="panel-name-block">
+            <h2 class="panel-name">Tina Sander</h2>
+            <p class="panel-role">Kursleitung</p>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">🏫 BSMG Zürich</span>
+            <span class="ptag">📖 ABU-Lehrperson</span>
+            <span class="ptag">🗣️ Sprache &amp; Didaktik</span>
+          </div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-section">
+            <h3 class="panel-section-title">Kurzprofil</h3>
+            <ul class="panel-list">
+              <li>Berufsschullehrperson ABU an der <strong>BSMG Zürich</strong></li>
+              <li>Fachamtsleiterin ABU</li>
+              <li>Gastdozentin PHZH &amp; EHB</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-nav-hint">&rarr; weiterklicken für nächste Person &nbsp;|&nbsp; &larr; zurück</div>
+    </div>
+
+    <!-- PIETRO ROSSI (detailliert) -->
+    <div class="person-panel" id="panel-pietro" data-hue="160">
+      <button class="panel-close" id="close-pietro" aria-label="Schliessen">&times;</button>
+      <div class="panel-inner">
+        <div class="panel-left">
+          <div class="panel-avatar" style="--hue:160">🐜</div>
+          <div class="panel-name-block">
+            <h2 class="panel-name">Pietro Rossi</h2>
+            <p class="panel-role">Kursleitung &middot; Fobizz</p>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">🏫 BBW Winterthur</span>
+            <span class="ptag">📖 ABU-Lehrperson</span>
+            <span class="ptag">💻 Päd. IKT-Team</span>
+            <span class="ptag">🎙️ Ehem. Radio Tessin</span>
+            <span class="ptag">🗳️ Politikwissenschaften</span>
+          </div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-section">
+            <h3 class="panel-section-title">Aktuelle Tätigkeit</h3>
+            <ul class="panel-list">
+              <li>ABU-Lehrperson an der <strong>Berufsbildungsschule Winterthur (BBW)</strong></li>
+              <li>Mitglied des pädagogischen IKT-Teams BBW</li>
+              <li>Kursleitung in der Erwachsenenbildung / Berufsbildung</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">Frühere Stationen</h3>
+            <ul class="panel-list">
+              <li>Journalist &amp; Moderator bei <strong>Radio Tessin</strong></li>
+              <li>Engagement in der Erwachsenenbildung</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">Ausbildung</h3>
+            <ul class="panel-list">
+              <li>Studium der Politikwissenschaften (Abschluss)</li>
+              <li>Lehrpersonenausbildung Berufsschule</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-nav-hint">&rarr; weiterklicken für nächste Person &nbsp;|&nbsp; &larr; zurück</div>
+    </div>
+
+    <!-- CHRISTOF GLAUS (kurz) -->
+    <div class="person-panel" id="panel-christof" data-hue="240">
+      <button class="panel-close" id="close-christof" aria-label="Schliessen">&times;</button>
+      <div class="panel-inner">
+        <div class="panel-left">
+          <div class="panel-avatar" style="--hue:240">🐄</div>
+          <div class="panel-name-block">
+            <h2 class="panel-name">Christof Glaus</h2>
+            <p class="panel-role">Kursleitung</p>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">🏫 BBW Winterthur</span>
+            <span class="ptag">📖 ABU-Lehrperson</span>
+            <span class="ptag">💻 Päd. IKT-Leitung</span>
+          </div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-section">
+            <h3 class="panel-section-title">Kurzprofil</h3>
+            <ul class="panel-list">
+              <li>ABU-Lehrperson an der <strong>BBW Winterthur</strong></li>
+              <li>Leitung pädagogische IKT</li>
+              <li>Tätig im DLH im Bereich <strong>KI und Berufsbildung</strong></li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-nav-hint">&rarr; weiterklicken für nächste Person &nbsp;|&nbsp; &larr; zurück</div>
+    </div>
+
+    <!-- CLAUDE CODE (kurz) -->
+    <div class="person-panel" id="panel-claude" data-hue="120">
+      <button class="panel-close" id="close-claude" aria-label="Schliessen">&times;</button>
+      <div class="panel-inner">
+        <div class="panel-left">
+          <div class="panel-avatar" style="--hue:120">🦛</div>
+          <div class="panel-name-block">
+            <h2 class="panel-name">Claude Code</h2>
+            <p class="panel-role">KI-Entwicklungs-Agent &middot; Anthropic</p>
+          </div>
+          <div class="panel-tags">
+            <span class="ptag">🤖 Claude Opus 4.6</span>
+            <span class="ptag">💻 Autonomer Agent</span>
+            <span class="ptag">🚀 Vercel &amp; GitHub</span>
+          </div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-section">
+            <h3 class="panel-section-title">Kurzprofil</h3>
+            <ul class="panel-list">
+              <li><strong>Kein Chatbot</strong> &ndash; ein autonomer Entwicklungs-Agent</li>
+              <li>Erstellung dieser Präsentation &ndash; vollständig autonom</li>
+              <li>Handelt direkt: Bug finden &rarr; Fix schreiben &rarr; Deploy</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+          <div class="panel-section">
+            <h3 class="panel-section-title">&nbsp;</h3>
+            <ul class="panel-list">
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-nav-hint">&rarr; weiterklicken für nächste Folie &nbsp;|&nbsp; &larr; zurück</div>
+    </div>
+
+    <div class="slide-decoration deco-3"></div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────
+       SLIDE 3 · PLATZHALTER 1
+  ────────────────────────────────────────────────────────── -->
+  <section class="slide" id="slide-3">
+    <div class="slide-bg slide-bg-content"></div>
+    <div class="slide-content placeholder-content">
+      <div class="section-label">Folie 3</div>
+      <h2 class="section-title">Inhalt folgt</h2>
+      <p class="placeholder-text">Diese Folie wird mit Inhalt gefüllt.</p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────
+       SLIDE 4 · PLATZHALTER 2
+  ────────────────────────────────────────────────────────── -->
+  <section class="slide" id="slide-4">
+    <div class="slide-bg slide-bg-content"></div>
+    <div class="slide-content placeholder-content">
+      <div class="section-label">Folie 4</div>
+      <h2 class="section-title">Inhalt folgt</h2>
+      <p class="placeholder-text">Diese Folie wird mit Inhalt gefüllt.</p>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────────
+       SLIDE 5 · PLATZHALTER 3
+  ────────────────────────────────────────────────────────── -->
+  <section class="slide" id="slide-5">
+    <div class="slide-bg slide-bg-content"></div>
+    <div class="slide-content placeholder-content">
+      <div class="section-label">Folie 5</div>
+      <h2 class="section-title">Inhalt folgt</h2>
+      <p class="placeholder-text">Diese Folie wird mit Inhalt gefüllt.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     DOT NAVIGATION
+════════════════════════════════════════════════════════════ -->
+<div class="dot-nav" id="dot-nav">
+  <span class="dot active" data-slide="0"></span>
+  <span class="dot" data-slide="1"></span>
+  <span class="dot" data-slide="2"></span>
+  <span class="dot" data-slide="3"></span>
+  <span class="dot" data-slide="4"></span>
+</div>
+
+<script src="slides.js"></script>
+</body>
+</html>
