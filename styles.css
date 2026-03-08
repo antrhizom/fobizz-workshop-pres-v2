@@ -695,6 +695,10 @@ html, body {
   gap: 16px;
 }
 
+.rlp-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .rlp-grid-4 {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -1038,6 +1042,7 @@ html, body {
     font-size: 2rem;
   }
 
+  .rlp-grid-3,
   .rlp-grid-4 {
     grid-template-columns: 1fr;
   }

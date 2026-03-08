@@ -115,13 +115,32 @@
     personIndex = -1;
   }
 
+  // Only Pietro gets highlight stepping
+  const STEP_PERSONS = ['pietro'];
+
+  function personHasStepping(name) {
+    return STEP_PERSONS.includes(name);
+  }
+
   function advancePerson() {
     if (personIndex === -1) {
       showPerson(PERSONS[0]);
       return;
     }
 
-    // No highlight stepping — just advance to next person
+    const personName = PERSONS[personIndex];
+
+    // Pietro: step through highlights
+    if (personHasStepping(personName)) {
+      const panel = panels[personName];
+      const numSections = panel ? panel.querySelectorAll('.panel-section').length : 1;
+      if (highlightStep < numSections - 1) {
+        applyHighlight(personName, highlightStep + 1);
+        return;
+      }
+    }
+
+    // All others (and Pietro when done): advance to next person
     if (personIndex < PERSONS.length - 1) {
       showPerson(PERSONS[personIndex + 1]);
     } else {
@@ -133,7 +152,22 @@
   function retreatPerson() {
     if (personIndex === -1) {
       goTo(currentSlide - 1);
-    } else if (personIndex > 0) {
+      return;
+    }
+
+    const personName = PERSONS[personIndex];
+
+    // Pietro: step back through highlights
+    if (personHasStepping(personName) && highlightStep >= 0) {
+      if (highlightStep > 0) {
+        applyHighlight(personName, highlightStep - 1);
+      } else {
+        resetAllHighlights();
+      }
+      return;
+    }
+
+    if (personIndex > 0) {
       showPerson(PERSONS[personIndex - 1]);
     } else {
       showPerson(null);
