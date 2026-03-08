@@ -122,7 +122,8 @@
     }
 
     const personName = PERSONS[personIndex];
-    const numSections = 3;
+    const panel = panels[personName];
+    const numSections = panel ? panel.querySelectorAll('.panel-section').length : 1;
 
     if (highlightStep < numSections - 1) {
       applyHighlight(personName, highlightStep + 1);
