@@ -121,31 +121,18 @@
       return;
     }
 
-    const personName = PERSONS[personIndex];
-    const panel = panels[personName];
-    const numSections = panel ? panel.querySelectorAll('.panel-section').length : 1;
-
-    if (highlightStep < numSections - 1) {
-      applyHighlight(personName, highlightStep + 1);
+    // No highlight stepping — just advance to next person
+    if (personIndex < PERSONS.length - 1) {
+      showPerson(PERSONS[personIndex + 1]);
     } else {
-      if (personIndex < PERSONS.length - 1) {
-        showPerson(PERSONS[personIndex + 1]);
-      } else {
-        closePanelSilent();
-        goTo(currentSlide + 1);
-      }
+      closePanelSilent();
+      goTo(currentSlide + 1);
     }
   }
 
   function retreatPerson() {
     if (personIndex === -1) {
       goTo(currentSlide - 1);
-    } else if (highlightStep >= 0) {
-      if (highlightStep > 0) {
-        applyHighlight(PERSONS[personIndex], highlightStep - 1);
-      } else {
-        resetAllHighlights();
-      }
     } else if (personIndex > 0) {
       showPerson(PERSONS[personIndex - 1]);
     } else {
